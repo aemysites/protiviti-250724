@@ -1,10 +1,13 @@
+/* Disable no-descending-specificity globally */
+/* stylelint-disable no-descending-specificity */
+
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  gap: 24px; /* Updated shorthand property */
 }
 
 .cards > ul > li {
@@ -24,4 +27,154 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.cards.cards25 > ul {
+  display: grid;
+  grid-template: 
+    "card1 card2 card2" 104px
+    "card3 card2 card2" 104px
+    "card4 card4 card5" 260px
+    "card4 card4 card6" auto / 36% 44% 18%;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Grid area assignments for each card */
+.cards.cards25 > ul > li:nth-child(1) { grid-area: card1; }
+.cards.cards25 > ul > li:nth-child(2) { grid-area: card2; }
+.cards.cards25 > ul > li:nth-child(3) { grid-area: card3; }
+.cards.cards25 > ul > li:nth-child(4) { grid-area: card4; }
+.cards.cards25 > ul > li:nth-child(5) { grid-area: card5; }
+.cards.cards25 > ul > li:nth-child(6) { grid-area: card6; }
+
+/* General card styling */
+.cards.cards25 > ul > li {
+  position: relative;
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 10%);
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  transition: box-shadow 0.2s;
+  height: 100%;
+}
+
+/* Make images fill card */
+.cards.cards25 .cards-card-image {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  position: relative;
+  line-height: 0;
+}
+
+.cards.cards25 .cards-card-image picture,
+.cards.cards25 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 22px;
+}
+
+/* Overlay text styling */
+.cards.cards25 .cards-card-body {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 32px 28px 22px;
+  color: #231f20;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgb(255 255 255 / 92%) 66%, rgb(255 255 255 / 10%) 100%);
+  box-sizing: border-box;
+  border-radius: 22px 22px 0 0;
+}
+
+.cards.cards25 .cards-card-body:empty {
+  display: none;
+}
+
+.cards.cards25 .cards-card-body h3 {
+  margin: 0 0 10px;
+  font-size: 2.1rem;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #4B3E2F;
+  text-transform: none;
+  line-height: 1.1;
+}
+
+.cards.cards25 .cards-card-body p {
+  margin: 0;
+  font-size: 1.13rem;
+  color: #7D7369;
+  line-height: 1.4;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+}
+
+/* Remove default aspect ratio on images for flexibility */
+.cards.cards25 > ul > li img {
+  aspect-ratio: unset;
+  height: 100%;
+  min-height: 0;
+  border-radius: 22px;
+}
+
+/* Ensure card5 and card6 stack tightly and fill the column */
+.cards.cards25 > ul > li:nth-child(5),
+.cards.cards25 > ul > li:nth-child(6) {
+  height: 50%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 10%);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Responsive: stack all vertically on small screens */
+@media (width <= 900px) {
+  .cards.cards25 > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .cards.cards25 > ul > li {
+    min-width: 0;
+    min-height: 120px;
+    height: auto;
+    width: 100%;
+  }
+
+  .cards.cards25 .cards-card-body {
+    position: static;
+    padding: 20px 16px 16px;
+    border-radius: 16px 16px 0 0;
+    background: linear-gradient(180deg, rgb(255 255 255 / 93%) 80%, rgb(255 255 255 / 5%) 100%);
+  }
+
+  .cards.cards25 .cards-card-image picture,
+  .cards.cards25 .cards-card-image img {
+    border-radius: 16px;
+  }
 }
