@@ -25,3 +25,167 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards37 {
+  padding: 54px 0;
+  background: #fafbfa;
+}
+
+/* Two cards side by side, slightly reduced gap for tighter layout */
+.cards.cards37 > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 28px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card containers, both stretch to same height */
+.cards.cards37 > ul > li {
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 10%);
+  border: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  flex: 1 1 0;
+  padding: 0;
+  transition: box-shadow 0.18s;
+  align-self: stretch; /* ensure both cards are same height */
+}
+
+/* Make left card (first) noticeably wider, right one a bit narrower */
+.cards.cards37 > ul > li:first-child {
+  flex: 1.45 1 0;
+  max-width: 700px;
+  min-width: 420px;
+}
+
+.cards.cards37 > ul > li:nth-child(2) {
+  flex: 0.7 1 0;
+  max-width: 350px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Images: let both start with same height for top alignment */
+.cards.cards37 .cards-card-image {
+  width: 100%;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.cards.cards37 > ul > li:first-child .cards-card-image img,
+.cards.cards37 > ul > li:nth-child(2) .cards-card-image img {
+  width: 100%;
+  height: 324px;
+  object-fit: cover;
+  border-radius: 28px 28px 0 0;
+  display: block;
+}
+
+/* Card body: more bottom padding for balance; right card vertically centered */
+.cards.cards37 .cards-card-body {
+  padding: 46px 42px 48px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.cards.cards37 > ul > li:nth-child(2) .cards-card-body {
+  padding: 34px 22px;
+  gap: 12px;
+  flex: 1 1 auto;
+  justify-content: center;
+  min-height: 0;
+}
+
+/* Headline tweaks for size and spacing */
+.cards.cards37 h3 {
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #181818;
+  margin: 0 0 10px;
+  line-height: 1.16;
+}
+
+.cards.cards37 > ul > li:first-child h3 {
+  font-size: 2.2rem;
+}
+
+.cards.cards37 > ul > li:nth-child(2) h3 {
+  font-size: 1.04rem;
+}
+
+/* Body text */
+.cards.cards37 .cards-card-body p {
+  color: #484848;
+  font-size: 1.09rem;
+  margin: 0 0 17px;
+  line-height: 1.55;
+}
+
+/* Button styling and extra margin for breathing room */
+.cards.cards37 > ul > li:first-child .cards-card-body p:last-child {
+  display: inline-block;
+  border: 1.2px solid #181818;
+  color: #181818;
+  background: #fff;
+  padding: 10px 31px;
+  border-radius: 22px;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 34px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  width: fit-content;
+  transition: background 0.18s;
+  box-shadow: none;
+}
+
+/* Subtle hover effect for button */
+.cards.cards37 > ul > li:first-child .cards-card-body p:last-child:hover {
+  background: #f3f3f3;
+}
+
+/* Responsive: stack vertically, shrink images and padding */
+@media (width <= 900px) {
+  .cards.cards37 > ul {
+    flex-direction: column;
+    gap: 24px;
+    max-width: 100%;
+  }
+
+  .cards.cards37 > ul > li {
+    max-width: 100%;
+    min-width: 0;
+    border-radius: 18px;
+  }
+
+  .cards.cards37 > ul > li:first-child .cards-card-image img,
+  .cards.cards37 > ul > li:nth-child(2) .cards-card-image img {
+    height: 180px;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .cards.cards37 .cards-card-body,
+  .cards.cards37 > ul > li:nth-child(2) .cards-card-body {
+    padding: 18px 11px;
+    gap: 10px;
+  }
+}
