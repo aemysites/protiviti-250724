@@ -25,3 +25,132 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  justify-items: start;
+}
+
+@media (width <= 1200px) {
+  .cards.cards24 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards24 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.cards.cards24 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  min-width: 220px;
+  margin: 0 auto;
+  box-shadow: none;
+  padding: 0;
+}
+
+.cards.cards24 .cards-card-image {
+  width: 100%;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards24 .cards-card-image picture,
+.cards.cards24 .cards-card-image img {
+  width: 100%;
+  display: block;
+  border-radius: 22px 22px 0 0;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  background: #f3f3f3;
+}
+
+.cards.cards24 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px 12px;
+  background: #fff;
+  flex: 1 1 auto;
+  text-align: left;
+  gap: 0;
+}
+
+/* Tag & Date row: left-aligned, compact */
+.cards.cards24 .cards-card-body > p:first-of-type,
+.cards.cards24 .cards-card-body > p:nth-of-type(2) {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cards.cards24 .cards-card-body > p:first-of-type {
+  background: #f3f3f3;
+  color: #353535;
+  text-transform: uppercase;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 5px 13px;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  margin-right: 10px;
+}
+
+.cards.cards24 .cards-card-body > p:nth-of-type(2) {
+  color: #787878;
+  background: none;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+
+/* Title styling and spacing */
+.cards.cards24 .cards-card-body > h3 {
+  font-family: var(--heading-font-family);
+  font-size: 1.6rem;
+  color: #232323;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 10px 0 0;
+  letter-spacing: 0.10em;
+  line-height: 1.1;
+  text-align: left;
+  padding: 0;
+}
+
+/* Responsive fine tuning */
+@media (width <= 700px) {
+  .cards.cards24 > ul > li {
+    max-width: 100%;
+  }
+
+  .cards.cards24 .cards-card-body {
+    padding: 8px 5px 10px;
+  }
+
+  .cards.cards24 .cards-card-body > h3 {
+    margin-top: 8px;
+    font-size: 1.1rem;
+  }
+}
